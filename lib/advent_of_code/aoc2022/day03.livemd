@@ -1,0 +1,109 @@
+<!-- vim: syntax=markdown -->
+
+# Day 3
+
+```elixir
+Mix.install([
+  {:kino, "~> 0.7.0"}
+])
+```
+
+## Common
+
+<!-- livebook:{"reevaluate_automatically":true} -->
+
+```elixir
+defmodule Day3 do
+  def parse_input(textarea) do
+    textarea
+    |> Kino.Input.read()
+    |> String.split("\n", trim: true)
+  end
+
+  def item_priority(item) when item in ?a..?z, do: item - 96
+  def item_priority(item) when item in ?A..?Z, do: item - 38
+
+  def common_item({_, _} = items), do: Tuple.to_list(items) |> common_item()
+
+  def common_item(items) when is_list(items) do
+    intersection =
+      items
+      |> Enum.map(&MapSet.new/1)
+      |> Enum.reduce(&MapSet.intersection/2)
+
+    unless MapSet.size(intersection) == 1, do: raise("invalid input #{items |> inspect()}")
+    intersection |> MapSet.to_list() |> hd()
+  end
+end
+```
+
+## Input
+
+<!-- livebook:{"reevaluate_automatically":true} -->
+
+```elixir
+textarea = Kino.Input.textarea("Input:")
+```
+
+<!-- livebook:{"reevaluate_automatically":true} -->
+
+```elixir
+input = Day3.parse_input(textarea)
+```
+
+## Part 1
+
+<!-- livebook:{"reevaluate_automatically":true} -->
+
+```elixir
+defmodule Day3.Part1 do
+  def run(input) do
+    input
+    |> Enum.map(fn rucksack ->
+      rucksack
+      |> split_rucksack()
+      |> Day3.common_item()
+      |> Day3.item_priority()
+    end)
+    |> Enum.sum()
+  end
+
+  defp split_rucksack(rucksack) do
+    length = String.length(rucksack)
+    unless Integer.mod(length, 2) == 0, do: raise("invalid input #{rucksack |> inspect()}")
+
+    rucksack
+    |> String.to_charlist()
+    |> Enum.split(div(length, 2))
+  end
+end
+```
+
+<!-- livebook:{"reevaluate_automatically":true} -->
+
+```elixir
+Day3.Part1.run(input)
+```
+
+## Part 2
+
+<!-- livebook:{"reevaluate_automatically":true} -->
+
+```elixir
+defmodule Day3.Part2 do
+  def run(input) do
+    input
+    |> Enum.map(&String.to_charlist/1)
+    |> Enum.chunk_every(3)
+    |> Enum.map(&Day3.common_item/1)
+    |> Enum.map(&Day3.item_priority/1)
+    |> Enum.sum()
+  end
+end
+```
+
+<!-- livebook:{"reevaluate_automatically":true} -->
+
+```elixir
+Day3.Part2.run(input)
+```
