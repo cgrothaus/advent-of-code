@@ -1,0 +1,70 @@
+<!-- vim: syntax=markdown -->
+
+# Day n
+
+```elixir
+Mix.install([
+  {:kino, "~> 0.7.0"}
+])
+```
+
+## Common
+
+<!-- livebook:{"reevaluate_automatically":true} -->
+
+```elixir
+defmodule DayN do
+  def parse_input(textarea) do
+    textarea
+    |> Kino.Input.read()
+  end
+end
+```
+
+## Input
+
+<!-- livebook:{"reevaluate_automatically":true} -->
+
+```elixir
+textarea = Kino.Input.textarea("Input:")
+```
+
+<!-- livebook:{"reevaluate_automatically":true} -->
+
+```elixir
+input = DayN.parse_input(textarea)
+```
+
+## Part 1
+
+<!-- livebook:{"reevaluate_automatically":true} -->
+
+```elixir
+defmodule DayN.Part1 do
+  def run(input) do
+  end
+end
+```
+
+<!-- livebook:{"reevaluate_automatically":true} -->
+
+```elixir
+DayN.Part1.run(input)
+```
+
+## Part 2
+
+<!-- livebook:{"reevaluate_automatically":true} -->
+
+```elixir
+defmodule DayN.Part2 do
+  def run(input) do
+  end
+end
+```
+
+<!-- livebook:{"reevaluate_automatically":true} -->
+
+```elixir
+DayN.Part2.run(input)
+```
