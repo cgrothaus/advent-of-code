@@ -26,8 +26,8 @@ defmodule AdventOfCode.AoC2022.Day2 do
     {:rock, :scissors} => {6, 0}
   }
 
-  def input(), do: File.read!("inputs/2022/day2.txt")
-  def example_input(), do: File.read!("inputs/2022/day2_example.txt")
+  def input(), do: File.read!("inputs/day02.txt")
+  def example_input(), do: File.read!("inputs/day02_example.txt")
 
   def part1(input) do
     input
