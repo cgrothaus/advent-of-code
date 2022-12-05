@@ -1,4 +1,4 @@
-defmodule AdventOfCode.AoC2022.Day1 do
+defmodule Day1 do
   def input(), do: File.read!("inputs/day01.txt")
   def example_input(), do: File.read!("inputs/day01_example.txt")
 

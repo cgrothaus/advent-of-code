@@ -1,4 +1,4 @@
-defmodule AdventOfCode.AoC2022.Day2 do
+defmodule Day2 do
   @input_mapping_part1 %{
     "A" => :rock,
     "B" => :paper,
