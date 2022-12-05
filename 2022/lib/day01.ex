@@ -6,8 +6,7 @@ defmodule Day1 do
     input
     |> String.split("\n\n")
     |> Enum.map(fn elve_calories ->
-      String.split(elve_calories, "\n")
-      |> Enum.reject(fn v -> v == "" end)
+      String.split(elve_calories, "\n", trim: true)
       |> Enum.map(&String.to_integer/1)
       |> Enum.sum()
     end)
@@ -18,8 +17,7 @@ defmodule Day1 do
     input
     |> String.split("\n\n")
     |> Enum.map(fn elve_calories ->
-      String.split(elve_calories, "\n")
-      |> Enum.reject(fn v -> v == "" end)
+      String.split(elve_calories, "\n", trim: true)
       |> Enum.map(&String.to_integer/1)
       |> Enum.sum()
     end)
