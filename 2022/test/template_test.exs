@@ -6,6 +6,7 @@ defmodule TemplateTest do
       assert Template.example_input() |> Template.split_lines() |> Template.Part1.run() == 0
     end
 
+    @tag :skip
     test "it runs on the real input" do
       Template.input()
       |> Template.split_lines()
@@ -15,10 +16,12 @@ defmodule TemplateTest do
   end
 
   describe "part 2" do
+    @tag :skip
     test "it works for the example input" do
       assert Template.example_input() |> Template.split_lines() |> Template.Part2.run() == 0
     end
 
+    @tag :skip
     test "it runs on the real input" do
       Template.input()
       |> Template.split_lines()
